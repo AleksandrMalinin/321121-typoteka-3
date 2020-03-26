@@ -1,7 +1,7 @@
 # Личный проект «Типотека» [![Build status][travis-image]][travis-url]
 
 * Студент: [Aleksandr Malinin](https://up.htmlacademy.ru/nodejs/3/user/321121).
-* Наставник: `Неизвестно`.
+* Наставник: `Уолтер Уайт`.
 
 ---
 
