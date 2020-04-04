@@ -7,7 +7,7 @@
     "test": "npm run eslint",
     "eslint": "eslint --ext .js src/",
     "start": "node ./src/service/service.js",
-    "start.dev": "nodemon ./src/main.js"
+    "server": "nodemon ./src/server.js --server 4000"
   },
   "repository": {
     "type": "git",
