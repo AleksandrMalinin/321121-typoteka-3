@@ -8,15 +8,15 @@ const {ExitCode} = require(`../../constants`);
 const DEFAULT_COUNT = 1;
 const MAX_COUNT = 100;
 const FILE_NAME = `mocks.json`;
-const FILE_TEXTS_PATH = `./data/texts.txt`;
+const FILE_SENTENSES_PATH = `./data/sentenses.txt`;
 const FILE_TITLES_PATH = `./data/titles.txt`;
 const FILE_CATEGORIES_PATH = `./data/categories.txt`;
 
-const generateOffers = (count, titles, categories, texts) => {
+const generateOffers = (count, titles, categories, sentences) => {
   return Array(count).fill({}).map(() => ({
     title: titles[getRandomInt(0, titles.length - 1)],
-    announce: shuffle(texts).slice(1, 5).join(` `),
-    fullText: shuffle(texts).slice(1, getRandomInt(0, texts.length - 1)).join(` `),
+    announce: shuffle(sentences).slice(1, 5).join(` `),
+    fullText: shuffle(sentences).slice(1, getRandomInt(0, sentences.length - 1)).join(` `),
     сategory: shuffle(categories).slice(1, getRandomInt(0, categories.length - 1))
   }))
 };
@@ -39,13 +39,13 @@ module.exports = {
       process.exit(ExitCode.success);
     }
 
-    const texts = await readContent(FILE_TEXTS_PATH);
+    const sentences = await readContent(FILE_SENTENSES_PATH);
     const titles = await readContent(FILE_TITLES_PATH);
     const categories = await readContent(FILE_CATEGORIES_PATH);
 
     const [count] = args;
     const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
-    const content = JSON.stringify(generateOffers(countOffer, titles, categories, texts));
+    const content = JSON.stringify(generateOffers(countOffer, titles, categories, sentences));
 
     try {
       await fs.writeFile(FILE_NAME, content);
