@@ -1,0 +1,20 @@
+- var isRegistrationPage = false
+- var isHeaderDropdown = true
+
+extends layout.pug
+
+include ./mixins
+block content
+  .wrapper.wrapper--nobackground
+    +header(isRegistrationPage, isHeaderDropdown)
+
+    main.main-page.main-page--padding
+      include partials/category.pug
+
+    footer.footer.footer--padding
+      a.footer__copyright(href='/' aria-label='HTMLAcademy')
+        img(src='/img/icons/HTMLAcademyLogo.svg' width='112' height='50' alt='HTMLAcademy')
+      span.footer__dot
+      p.footer__text Типотека, 2019
+
+  script(src='/js/main.js')
