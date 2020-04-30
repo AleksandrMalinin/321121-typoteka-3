@@ -2,6 +2,7 @@
 
 const fs = require(`fs`).promises;
 const chalk = require(`chalk`);
+const {nanoid} = require(`nanoid`);
 const {getRandomInt, shuffle} = require(`../../utils`);
 const {ExitCode} = require(`../../constants`);
 
@@ -17,7 +18,8 @@ const generateOffers = (count, titles, categories, sentences) => {
     title: titles[getRandomInt(0, titles.length - 1)],
     announce: shuffle(sentences).slice(1, 5).join(` `),
     fullText: shuffle(sentences).slice(1, getRandomInt(0, sentences.length - 1)).join(` `),
-    сategory: shuffle(categories).slice(1, getRandomInt(0, categories.length - 1))
+    сategory: shuffle(categories).slice(1, getRandomInt(0, categories.length - 1)),
+    id: nanoid()
   }))
 };
 
