@@ -25,7 +25,7 @@ const generateOffers = (count, titles, categories, sentences, comments) => {
       id: nanoid(),
       text: shuffle(comments).slice(1, getRandomInt(0, comments.length - 1)).join(` `)
     }))
-  }))
+  }));
 };
 
 const readContent = async (filePath) => {
@@ -62,4 +62,4 @@ module.exports = {
       console.error(chalk.red(`Can't write data to file...`));
     }
   }
-}
+};
